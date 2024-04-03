@@ -1,12 +1,17 @@
+
+
 rule hadd:
     input:
-        ntuple1="ntuple1.root",
-        ntuple2="ntuple2.root"
+        rules.samples.output
     output:
-        ntupleOut="ntupleOut.root"
+        "ntupleOut.root"
     log:
         "logs/root/hadd.log"
-    params:
-        "-X 0 -R 0 -r 0.1 -h"
     wrapper:
-        "master/phys/hadd"
+        "master/phys/root/hadd"
+        
+rule samples:
+    output:
+        expand("ntuple{n}.root", n=range(4))
+    script:
+        "generate.py"

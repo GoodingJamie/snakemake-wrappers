@@ -1,4 +1,4 @@
-name: root hadd
+name: "root hadd"
 description: Combine ntuples with hadd
 authors:
   - Jamie Gooding
