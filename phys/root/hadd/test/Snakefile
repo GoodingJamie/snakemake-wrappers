@@ -1,0 +1,12 @@
+rule hadd:
+    input:
+        ntuple1="ntuple1.root",
+        ntuple2="ntuple2.root"
+    output:
+        ntupleOut="ntupleOut.root"
+    log:
+        "logs/root/hadd.log"
+    params:
+        "-X 0 -R 0 -r 0.1 -h"
+    wrapper:
+        "master/phys/hadd"
